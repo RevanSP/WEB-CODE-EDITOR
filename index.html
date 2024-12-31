@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="business">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,41 +9,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/material-darker.css">
-<link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="icon" href="public/code.png" type="image/png">
 </head>
+
 <body>
     <div class="flex flex-col md:flex-row h-screen overflow-hidden">
-        <div id="leftColumn" 
-             class="fixed md:relative md:w-1/2 h-full z-50 transform transition-transform duration-300 ease-in-out
+        <div id="leftColumn" class="fixed md:relative md:w-1/2 h-full z-50 transform transition-transform duration-300 ease-in-out
                     md:transform-none md:transition-all md:opacity-100 md:visible bg-base-300 w-full overflow-y-auto">
             <div class="p-4">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-2xl font-bold google-sans mt-1">WEB CODE EDITOR</h2>
-                    <button id="mobileCloseBtn" 
-                            class="md:hidden btn-sm btn-square bg-base-100 btn rounded transition-colors duration-300">
+                    <button id="mobileCloseBtn"
+                        class="md:hidden btn-sm btn-square bg-base-100 btn rounded transition-colors duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12">
+                            </path>
                         </svg>
                     </button>
                 </div>
                 <label class="form-control resize-y overflow-hidden">
                     <div class="label">
                         <span class="label-text google-sans">HTML</span>
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-6 filter grayscale">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                            class="w-6 filter grayscale">
                     </div>
                     <textarea id="html" placeholder="HTML Code ..."></textarea>
                 </label>
                 <label class="form-control resize-y overflow-hidden mt-3">
                     <div class="label">
                         <span class="label-text google-sans">CSS</span>
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-6 filter grayscale">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                            class="w-6 filter grayscale">
                     </div>
                     <textarea id="css" placeholder="CSS Code ..."></textarea>
                 </label>
                 <label class="form-control resize-y overflow-hidden mt-3">
                     <div class="label">
                         <span class="label-text google-sans">JS</span>
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-6 filter grayscale">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                            class="w-6 filter grayscale">
                     </div>
                     <textarea id="js" placeholder="JS Code ..."></textarea>
                 </label>
@@ -77,14 +83,16 @@
                 </h3>
             </div>
         </div>
-        <div id="rightColumn" 
-             class="relative w-full md:w-1/2 transition-all duration-300 ease-in-out bg-base-200 overflow-y-auto">
-             <div class="p-4">
+        <div id="rightColumn"
+            class="relative w-full md:w-1/2 transition-all duration-300 ease-in-out bg-base-200 overflow-y-auto">
+            <div class="p-4">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-2xl font-bold google-sans">OUTPUT</h2>
-                    <button id="toggleBtn" class="btn-sm btn-square btn bg-base-100 rounded transition-colors duration-300">
+                    <button id="toggleBtn"
+                        class="btn-sm btn-square btn bg-base-100 rounded transition-colors duration-300">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
@@ -95,8 +103,7 @@
                 </div>
             </div>
         </div>
-        <div id="overlay" 
-             class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity duration-300"></div>
+        <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity duration-300"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/xml/xml.min.js"></script>
@@ -105,8 +112,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/htmlmixed/htmlmixed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/closebrackets.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/addon/edit/matchbrackets.min.js"></script>
-  
+
     <script src="public/code-mirror.js"></script>
     <script src="public/script.js"></script>
 </body>
+
 </html>
