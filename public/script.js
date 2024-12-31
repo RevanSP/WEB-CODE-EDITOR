@@ -3,11 +3,18 @@ const rightColumn = document.getElementById('rightColumn');
 const toggleBtn = document.getElementById('toggleBtn');
 const mobileCloseBtn = document.getElementById('mobileCloseBtn');
 const overlay = document.getElementById('overlay');
+const textareas = document.querySelectorAll('textarea');  
 let isCollapsed = false;
 
+function isFocusedOnTextarea() {
+    return document.activeElement && document.activeElement.tagName.toLowerCase() === 'textarea';
+}
+
 function toggleSidebar() {
-    isCollapsed = !isCollapsed;
+    if (isFocusedOnTextarea()) return; 
     
+    isCollapsed = !isCollapsed;
+
     if (window.innerWidth >= 768) {
         if (isCollapsed) {
             leftColumn.classList.add('md:w-0', 'md:opacity-0', 'md:invisible', 'md:p-0', 'md:m-0');
@@ -43,6 +50,13 @@ function initializeLayout() {
 toggleBtn.addEventListener('click', toggleSidebar);
 mobileCloseBtn.addEventListener('click', toggleSidebar);
 overlay.addEventListener('click', toggleSidebar);
+
+textareas.forEach(textarea => {
+    textarea.addEventListener('focus', (event) => {
+        event.stopPropagation();
+    });
+});
+
 window.addEventListener('resize', initializeLayout);
 
 initializeLayout();
